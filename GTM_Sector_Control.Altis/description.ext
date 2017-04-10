@@ -1,0 +1,11 @@
+class Header
+{
+ gameType = SC;            
+ minPlayers = 6;             
+ maxPlayers = 32;           
+};
+
+joinUnassigned = 0;
+disabledAI = 1;
+respawn = "BASE";
+respawndelay = 8;
