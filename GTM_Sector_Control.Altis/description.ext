@@ -5,11 +5,9 @@ class Header
  maxPlayers = 32;           
 };
 
-joinUnassigned = 0;
-disabledAI = 1;
-respawn = "BASE";
-respawndelay = 8;
 
+
+/*
 class CfgRemoteExec
 {        
        // List of script functions allowed to be sent from client via remoteExec
@@ -33,6 +31,14 @@ class CfgRemoteExec
        {
               /*your commands here*/
               class format { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
-			  class hint { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
+			  //class hint { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
+			  class "format ["OPFOR now controls %1",str _target;]" remoteExec ["hint;",-2;]; { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
 	};
 };
+
+*/
+
+joinUnassigned = 0;
+disabledAI = 1;
+respawn = "BASE";
+respawndelay = 8;

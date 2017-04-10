@@ -20,5 +20,5 @@ execVM "timer.sqf";
 
 
 {
-_x addAction ["Hoist your flag",{[_x,_this] call {fnc_hasCaptured}},"",0,true,true,"",(flagSide _x != side _this),-1,false,""],-2];
+//_x addAction ["Hoist your flag",{[_x,player] call {fnc_hasCaptured}},"",0,true,true,"",(flagSide _x != side player),-1,false,""];
 } forEach flags;
