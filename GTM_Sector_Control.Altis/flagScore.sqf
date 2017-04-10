@@ -1,6 +1,6 @@
 _flagTime = 20;
 
-while {true} do
+while {!end} do
 {
 	sleep _flagTime;
 	{
