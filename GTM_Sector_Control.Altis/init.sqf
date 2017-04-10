@@ -20,5 +20,9 @@ execVM "timer.sqf";
 
 
 {
-//_x addAction ["Hoist your flag",{[_x,player] call {fnc_hasCaptured}},"",0,true,true,"",(flagSide _x != side player),-1,false,""];
+	_x addAction ["Hoist your flag", {call {fnc_hasCaptured}}, [], 0, true, true, , {flagSide _x != side player}, -1, false, ];
+	//player addAction ["Hint Hello!", {hint format ["Hello %1!", _this select 3]}, name player];
 } forEach flags;
+
+
+//_veh addAction [_x select 0, "classaction.sqf", [_x, WEST], 4, false, true, "", _cond];
