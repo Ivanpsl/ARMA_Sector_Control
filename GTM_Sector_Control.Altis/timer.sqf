@@ -10,7 +10,7 @@ while {!end} do
 	};
 	if (timeLeft <= 0 && scoreBlufor == scoreOpfor) then {
 		timeLeft = timeLeft + 60;
-		hint "Teams scores are equal! \nAdded 1 minute of extra time!";
+		"Teams scores are equal! \nAdded 1 minute of extra time!" remoteExec ["hint",0];
 	};
 };
 
@@ -21,7 +21,7 @@ else {
 	_winnerTeam = "BLUFOR";
 };
 
-hint format ["GAME OVER\nThe winner team is ", _winnerTeam];
+format ["GAME OVER\nThe winner team is ", _winnerTeam] remoteExec ["hint",0];
 sleep 8;
 
 ["","",3,true,true] spawn BIS_fnc_endMission;

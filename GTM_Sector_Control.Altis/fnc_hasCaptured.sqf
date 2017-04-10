@@ -11,7 +11,7 @@ sleep 2;
 if (side _caller == EAST) then {
 	_target setFlagTexture "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 	sleep 1;
-	//"format ["OPFOR now controls %1",str _target]" remoteExec ["hint",-2];
+	format ["OPFOR now controls %1",str _target] remoteExec ["hint",0];
 	if (_target == A) then {
 		"SA" setMarkerColor "colorOPFOR";
 	};
@@ -25,7 +25,7 @@ if (side _caller == EAST) then {
 if (side _caller == WEST) then {
 	_target setFlagTexture "\A3\Data_F\Flags\Flag_nato_CO.paa";
 	sleep 1;
-	//"format ["BLUFOR now controls %1",str _target]" remoteExec ["hint",-2];
+	format ["BLUFOR now controls %1",str _target] remoteExec ["hint",0];
 	if (_target == A) then {
 		"SA" setMarkerColor "colorBLUFOR";
 	};
