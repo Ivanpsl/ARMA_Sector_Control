@@ -31,6 +31,7 @@ fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
 execVM "spawnProtection.sqf";
 execVM "flagScore.sqf";
 execVM "flagMarkers.sqf";
+execVM "maintainRating.sqf";
 execVM "timer.sqf";
 
 [] call compile preprocessFileLineNumbers "hud_create.sqf";
