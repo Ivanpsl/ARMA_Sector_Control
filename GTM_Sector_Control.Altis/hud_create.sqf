@@ -15,6 +15,6 @@ _flagCInfo =_ui displayCtrl 1013;
 _scoreW = _ui displayCtrl 1101;
 _scoreE = _ui displayCtrl 1102;
 
-{_x ctrlShow true} foreach [_timer, _mission, _scoreW, _scoreE];
+{_x ctrlShow true} forEach [_timer, _mission, _scoreW, _scoreE];
 
 _mission ctrlSetBackgroundColor [if (side Player == WEST) then {0} else {1}, 0, if (side Player == WEST) then {1} else {0}, 0.3];

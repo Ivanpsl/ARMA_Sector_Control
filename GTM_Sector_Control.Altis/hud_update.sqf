@@ -1,5 +1,3 @@
-//PENDIENTE DE MODIFICAR
-
 
 private ["_missionText", "_ui", "_timeText"];
 

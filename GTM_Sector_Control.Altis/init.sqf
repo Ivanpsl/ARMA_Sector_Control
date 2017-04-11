@@ -4,6 +4,17 @@ flags = [A,B,C];
 scoreBlufor = 0;
 scoreOpfor = 0;
 end = false;
+timeLeft = 0;
+
+/*
+flagASide = "ind";
+flagBSide = "ind";
+flagCSide = "ind";
+flagAText = "ind";
+flagBText = "ind";
+flagCText = "ind";
+*/
+
 
 waitUntil {!isNull player};
 
@@ -35,3 +46,11 @@ fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
 
 ["AmmoboxInit",[supplyOpfor,true,'playerSide _this == str EAST']] spawn BIS_fnc_arsenal;
 ["AmmoboxInit",[supplyBlufor,true,'playerSide _this == str WEST']] spawn BIS_fnc_arsenal;
+
+/*
+while {true} do
+{
+	if (flagASide == "EAST") then {
+		A setFlagSide independent
+};
+*/
