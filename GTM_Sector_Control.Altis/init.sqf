@@ -5,6 +5,14 @@ scoreBlufor = 0;
 scoreOpfor = 0;
 end = false;
 
+waitUntil {!isNull player};
+
+["teleportHandler", "onMapSingleClick", {
+	if (_alt) then {
+		player setPosATL _pos;
+	};
+}] call BIS_fnc_addStackedEventHandler;
+
 
 fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
 
