@@ -7,7 +7,7 @@ _target setFlagSide (side _caller);
 
 sleep 1;
 _target setFlagTexture "";
-sleep 2;
+sleep 1;
 
 
 if (side _caller == EAST) then {

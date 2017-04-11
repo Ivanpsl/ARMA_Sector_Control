@@ -17,4 +17,4 @@ _scoreE = _ui displayCtrl 1102;
 
 {_x ctrlShow true} foreach [_timer, _mission, _scoreW, _scoreE];
 
-_mission ctrlSetBackgroundColor [if (sidePlayer == WEST) then {0} else {1}, 0, if (sidePlayer == WEST) then {1} else {0}, 0.3];
+_mission ctrlSetBackgroundColor [if (side Player == WEST) then {0} else {1}, 0, if (side Player == WEST) then {1} else {0}, 0.3];

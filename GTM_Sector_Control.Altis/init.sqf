@@ -16,7 +16,6 @@ waitUntil {!isNull player};
 
 fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
 
-sidePlayer = side player;
 
 execVM "spawnProtection.sqf";
 execVM "flagScore.sqf";
