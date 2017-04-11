@@ -19,3 +19,6 @@ createMarker ["SB", B];
 createMarker ["SC", C];
 "SC" setMarkerType "hd_objective";
 "SC" setMarkerText "Sector C";
+
+"respawn_west" setMarkerType "Empty";
+"respawn_east" setMarkerType "Empty";

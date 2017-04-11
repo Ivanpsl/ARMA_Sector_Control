@@ -26,17 +26,16 @@ waitUntil {!isNull player};
 
 
 fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
+fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
+//[] call compile preprocessFileLineNumbers "hud_create.sqf";
 
 
+execVM "hud_create.sqf";
 execVM "spawnProtection.sqf";
 execVM "flagScore.sqf";
 execVM "flagMarkers.sqf";
 execVM "maintainRating.sqf";
 execVM "timer.sqf";
-
-[] call compile preprocessFileLineNumbers "hud_create.sqf";
-
-fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
 
 
 {

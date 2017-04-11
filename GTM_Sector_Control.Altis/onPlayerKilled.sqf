@@ -50,6 +50,6 @@ if (isServer) then {
 			scoreOpfor = scoreOpfor + 1;
 		};
 	};
-	publicVariable scoreOpfor;
-	publicVariable scoreBlufor;
+	publicVariable "scoreOpfor";
+	publicVariable "scoreBlufor";
 };
