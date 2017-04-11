@@ -5,12 +5,6 @@ scoreBlufor = 0;
 scoreOpfor = 0;
 end = false;
 
-//Estado de las banderas {0=libre, 1=blufor, 2=opfor}
-
-flagAStatus=0;
-flagBStatus=0;
-flagCStatus=0;
-
 waitUntil {!isNull player};
 
 ["teleportHandler", "onMapSingleClick", {
