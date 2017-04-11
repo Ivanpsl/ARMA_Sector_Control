@@ -1,5 +1,6 @@
 _maxTime = 3600;
 timeLeft = _maxTime + 1;
+_winnerTeam = "";
 
 while {!end} do
 {
@@ -25,6 +26,6 @@ else {
 };
 
 format ["GAME OVER\nThe winner team is %1", _winnerTeam] remoteExec ["hint",0];
-sleep 8;
+sleep 10;
 
-["","",3,true,true] spawn BIS_fnc_endMission;
+["end1",true,3,true,true] call BIS_fnc_endMission;
