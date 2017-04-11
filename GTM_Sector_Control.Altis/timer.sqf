@@ -5,11 +5,11 @@ while {!end} do
 {
 	timeLeft = timeLeft - 1;
 	sleep 1;
-	if (timeLeft <= 0 && scoreBlufor != scoreOpfor) then {
+	if (timeLeft < 0 && scoreBlufor != scoreOpfor) then {
 		end = true;
 	};
-	if (timeLeft <= 0 && scoreBlufor == scoreOpfor) then {
-		timeLeft = timeLeft + 60;
+	if (timeLeft < 0 && scoreBlufor == scoreOpfor) then {
+		timeLeft = timeLeft + 61;
 		"Teams scores are equal! \nAdded 1 minute of extra time!" remoteExec ["hint",0];
 	};
 	_displayString = timeLeft;

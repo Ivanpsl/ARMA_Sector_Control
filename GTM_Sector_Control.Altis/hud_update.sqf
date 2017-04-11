@@ -38,7 +38,9 @@ else {
 if (timeLeft <= 0) then
 	{
 		_segundos = "0";
-		_minutos = "00";
+		_minutos = "0";
+		_zeromin = "0";
+		_zeroseg = "0";
 	};
 	
 	
