@@ -12,6 +12,9 @@ while {!end} do
 		timeLeft = timeLeft + 60;
 		"Teams scores are equal! \nAdded 1 minute of extra time!" remoteExec ["hint",0];
 	};
+	_displayString = timeLeft;
+	
+	[_displayString] call fnc_HUDUpdate;
 };
 
 if (scoreOpfor > scoreBlufor) then{

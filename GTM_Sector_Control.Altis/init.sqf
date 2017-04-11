@@ -8,10 +8,17 @@ end = false;
 
 fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
 
+sidePlayer = side player;
+
 execVM "spawnProtection.sqf";
 execVM "flagScore.sqf";
 execVM "flagMarkers.sqf";
 execVM "timer.sqf";
+
+[] call compile preprocessFileLineNumbers "hud_create.sqf";
+
+fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
+
 
 {
 	_x setFlagSide independent;

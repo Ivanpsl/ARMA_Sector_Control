@@ -5,6 +5,11 @@ class Header
  maxPlayers = 32;           
 };
 
+class RscTitles
+{
+	#include "hud_dialog.cpp"
+};
+
 joinUnassigned = 0;
 disabledAI = 1;
 respawn = "BASE";

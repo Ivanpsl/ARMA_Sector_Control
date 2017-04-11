@@ -9,6 +9,9 @@ _ui = uiNamespace getVariable "DTASHUD";
 
 _timer = _ui displayCtrl 1001;
 _mission = _ui displayCtrl 1002;
+_flagAInfo =_ui displayCtrl 1011;
+_flagBInfo =_ui displayCtrl 1012;
+_flagCInfo =_ui displayCtrl 1013;
 _scoreW = _ui displayCtrl 1101;
 _scoreE = _ui displayCtrl 1102;
 

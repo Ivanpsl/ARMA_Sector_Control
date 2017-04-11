@@ -1,51 +1,64 @@
 //PENDIENTE DE MODIFICAR
 
 
-private ["_missionText", "_ui", "_timeText", "_isCapturing", "_cap"];
+private ["_missionText", "_ui", "_timeText"];
+
 
 _timeText = _this select 0;
 
-_isCapturing = [player] call fnc_isCapturing;
 
 disableSerialization;
 
+
+//MOSTRANDO TIEMPO 
+
+_minutos = floor (timeLeft / 60);
+_segundos =  floor (timeLeft mod 60);
+
+
 _ui = uiNamespace getVariable "DTASHUD";
 
-(_ui displayCtrl 1001) ctrlSetText _timeText;
-if (isSpectating) then
-{
-	_missionText = name spectateUnit;
-}
-else
-{
-	_cap = round (capPercentage * 100);
-	if (_cap > 100) then
+if (timeLeft < 1) then
 	{
-		_cap = 100;
+		_segundos = 0;
+		_minutos = 0;
 	};
-	_missionText = format [localize "STR_Attacking", _cap, "%"];
-	if (_isCapturing) then
-	{
-		_missionText = format [localize "STR_Capturing", _cap, "%"];
-	};
-	if (sidePlayer != attackerSide) then
-	{
-		_missionText = localize "STR_Defending";
-		if (_isCapturing) then
-		{
-			_missionText = localize "STR_Holding";
-		};
-	};
-	if (!roundInProgress) then
-	{
-		_missionText = localize "STR_Planning";
-	};
-	if (roundInProgress && (!isPlaying)) then
-	{
-		_missionText = localize "STR_Waiting";
-	};
-};
-(_ui displayCtrl 1002) ctrlSetText _missionText;
+	
+_timeText= format ["%1:%2",_minutos, _segundos , (_segundos mod 10)];
 
-(_ui displayCtrl 1101) ctrlSetText str scoreW;
-(_ui displayCtrl 1102) ctrlSetText str scoreE;
+//Actualizamos hud de banderas:
+//A
+if(flagSide A == EAST)then
+{
+	(_ui displayCtrl 1011) ctrlSetBackgroundColor [1,0,0,0.6];
+};
+if (flagSide A == WEST) then
+{
+	(_ui displayCtrl 1011) ctrlSetBackgroundColor [0,0,1,0.6];
+};
+//B
+if(flagSide B == EAST)then
+{
+	(_ui displayCtrl 1012) ctrlSetBackgroundColor [1,0,0,0.6];
+};
+if (flagSide B == WEST) then
+{
+	(_ui displayCtrl 1012) ctrlSetBackgroundColor [0,0,1,0.6];
+};
+//C
+if(flagSide C == EAST)then
+{
+	(_ui displayCtrl 1013) ctrlSetBackgroundColor [1,0,0,0.6];
+};
+if (flagSide C == WEST) then
+{
+	(_ui displayCtrl 1013) ctrlSetBackgroundColor [0,0,1,0.6];
+};
+
+(_ui displayCtrl 1001) ctrlSetText _timeText;
+
+
+(_ui displayCtrl 1002) ctrlSetText "¿?";
+
+(_ui displayCtrl 1101) ctrlSetText str scoreBlufor;
+(_ui displayCtrl 1102) ctrlSetText str scoreOpfor;
