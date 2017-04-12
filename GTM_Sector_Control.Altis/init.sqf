@@ -37,7 +37,9 @@ execVM "flagMarkers.sqf";
 execVM "maintainRating.sqf";
 execVM "texturesUpdate.sqf";
 execVM "timer.sqf";
-
+if (isServer) then {
+	execVM "synchronizePlayers.sqf";
+};
 
 {
 	_x setFlagSide (side Player);
@@ -55,3 +57,21 @@ if (isServer) then {
 
 ["AmmoboxInit",[supplyOpfor,true,{side _this == EAST}]] spawn BIS_fnc_arsenal;
 ["AmmoboxInit",[supplyBlufor,true,{side _this == WEST}]] spawn BIS_fnc_arsenal;
+
+if (isServer) then {
+	onPlayerConnected {
+		_owner publicVariableClient "timeLeft";
+		_owner publicVariableClient "end";
+		
+		_owner publicVariableClient "flagASide";
+		_owner publicVariableClient "flagBSide";
+		_owner publicVariableClient "flagCSide";
+		
+		_owner publicVariableClient "flagAText";
+		_owner publicVariableClient "flagBText";
+		_owner publicVariableClient "flagCText";
+		
+		_owner publicVariableClient "scoreOpfor";
+		_owner publicVariableClient "scoreBlufor";
+	};
+};

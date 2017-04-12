@@ -22,3 +22,26 @@ createMarker ["SC", C];
 
 "respawn_west" setMarkerType "Empty";
 "respawn_east" setMarkerType "Empty";
+
+sleep 0.5;
+
+if (flagASide == EAST) then {
+	"SA" setMarkerColor "colorOPFOR";
+};
+if (flagASide == WEST) then {
+	"SA" setMarkerColor "colorOPFOR";
+};
+
+if (flagBSide == EAST) then {
+	"SB" setMarkerColor "colorOPFOR";
+};
+if (flagBSide == WEST) then {
+	"SB" setMarkerColor "colorOPFOR";
+};
+
+if (flagCSide == EAST) then {
+	"SC" setMarkerColor "colorOPFOR";
+};
+if (flagCSide == WEST) then {
+	"SC" setMarkerColor "colorOPFOR";
+};
