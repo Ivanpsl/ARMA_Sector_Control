@@ -4,7 +4,7 @@ _winnerTeam = "";
 
 while {!end} do
 {
-	timeLeft = timeLeft - 0.1;
+	timeLeft = timeLeft - 1;
 	if (isServer) then {
 		if (timeLeft < 0 && scoreBlufor != scoreOpfor) then {
 			end = true;
@@ -15,11 +15,19 @@ while {!end} do
 		};
 		publicVariable "timeLeft";
 		publicVariable "end";
+		
+		publicVariable "flagASide";
+		publicVariable "flagBSide";
+		publicVariable "flagCSide";
+		
+		publicVariable "flagAText";
+		publicVariable "flagBText";
+		publicVariable "flagCText";
 	};
 	_displayString = timeLeft;
 	
 	[_displayString] call fnc_HUDUpdate;
-	sleep 0.1;
+	sleep 1;
 };
 
 if (isServer) then {
