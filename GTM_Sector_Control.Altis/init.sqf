@@ -11,7 +11,6 @@ flagASide = independent;
 flagBSide = independent;
 flagCSide = independent;
 
-flagSides = [flagASide,flagBSide,flagCSide];
 
 /*
 flagAText = "ind";

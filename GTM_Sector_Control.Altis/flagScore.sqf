@@ -14,7 +14,7 @@ _flagTime = 1; //20
 			{
 				scoreBlufor = scoreBlufor + 1;
 			};
-		} foreach flagSides;
+		} forEach [flagASide,flagBSide,flagCSide];
 		
 		publicVariable "scoreOpfor";
 		publicVariable "scoreBlufor";
