@@ -2,9 +2,19 @@ _target = _this select 0;
 _caller = _this select 1;
 
 
-
-_target setFlagSide (side _caller);
-publicVariable "_target";
+//_target setFlagSide (side _caller);
+if (_target == A) then {
+	flagASide = (side _caller);
+	publicVariable "flagASide";
+};
+if (_target == B) then {
+	flagBSide = (side _caller);
+	publicVariable "flagBSide";
+};
+if (_target == C) then {
+	flagCSide = (side _caller);
+	publicVariable "flagCSide";
+};
 
 sleep 1;
 _target setFlagTexture "";

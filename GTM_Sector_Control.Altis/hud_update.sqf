@@ -46,29 +46,29 @@ _timeText= format ["%4%1:%3%2",_minutos, _segundos , _zeroseg, _zeromin];
 
 //Actualizamos hud de banderas:
 //A
-if(flagSide A == EAST)then
+if(flagASide == EAST)then
 {
 	(_ui displayCtrl 1011) ctrlSetBackgroundColor [1,0,0,0.6];
 };
-if (flagSide A == WEST) then
+if (flagASide == WEST) then
 {
 	(_ui displayCtrl 1011) ctrlSetBackgroundColor [0,0,1,0.6];
 };
 //B
-if(flagSide B == EAST)then
+if(flagBSide == EAST)then
 {
 	(_ui displayCtrl 1012) ctrlSetBackgroundColor [1,0,0,0.6];
 };
-if (flagSide B == WEST) then
+if (flagBSide == WEST) then
 {
 	(_ui displayCtrl 1012) ctrlSetBackgroundColor [0,0,1,0.6];
 };
 //C
-if(flagSide C == EAST)then
+if(flagCSide == EAST)then
 {
 	(_ui displayCtrl 1013) ctrlSetBackgroundColor [1,0,0,0.6];
 };
-if (flagSide C == WEST) then
+if (flagCSide == WEST) then
 {
 	(_ui displayCtrl 1013) ctrlSetBackgroundColor [0,0,1,0.6];
 };
