@@ -5,14 +5,26 @@ class Header
  maxPlayers = 32;           
 };
 
+author = "Javiervs & Twingastur from GTMercenaries";
+onLoadName = "GTM Sector Control";
+
 class RscTitles
 {
 	#include "hud_dialog.cpp"
 };
 
+saving = 0;
+
 joinUnassigned = 0;
 disabledAI = 1;
 respawn = "BASE";
 respawndelay = 10;
+
+corpseManagerMode = 2;
+corpseLimit = 20;
+corpseRemovalMinTime = 120;
+corpseRemovalMaxTime = 1200;
+minPlayerDistance = 200;
+
 
 enableDebugConsole = 2;

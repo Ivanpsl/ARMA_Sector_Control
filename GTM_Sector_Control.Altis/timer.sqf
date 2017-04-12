@@ -35,4 +35,9 @@ format ["GAME OVER\nThe winner team is %1", _winnerTeam] remoteExec ["hint",0];
 
 sleep 10;
 
-["end1",true,3,true,true] call BIS_fnc_endMission;
+if (side Player == _winnerTeam) then {
+	["end1",true,3,true,true] call BIS_fnc_endMission;
+}
+else {
+	["end2",false,3,true,true] call BIS_fnc_endMission;
+};
