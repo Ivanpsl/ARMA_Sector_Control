@@ -22,6 +22,8 @@ createMarker ["SC", C];
 
 "respawn_west" setMarkerType "Empty";
 "respawn_east" setMarkerType "Empty";
+"respawn_vehicle_west" setMarkerType "Empty";
+"respawn_vehicle_east" setMarkerType "Empty";
 
 sleep 0.5;
 
