@@ -32,6 +32,7 @@ fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
 
 execVM "hud_create.sqf";
 execVM "spawnProtection.sqf";
+execVM "isNearSupply.sqf";
 execVM "flagScore.sqf";
 execVM "flagMarkers.sqf";
 execVM "maintainRating.sqf";

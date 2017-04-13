@@ -20,6 +20,6 @@ while {true} do {
 	{_x ctrlShow true} forEach [_timer, _mission, _scoreW, _scoreE];
 
 	_mission ctrlSetBackgroundColor [if (side Player == WEST) then {0} else {1}, 0, if (side Player == WEST) then {1} else {0}, 0.3];
-	waitUntil {inSpawn};
-	waitUntil {!inSpawn};
+	waitUntil {nearSupply};
+	waitUntil {!nearSupply};
 };
