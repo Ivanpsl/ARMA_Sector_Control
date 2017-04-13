@@ -1,17 +1,20 @@
 _maxTime = 3600;
 timeLeft = _maxTime + 1;
-_winnerTeam = "";
+winnerTeam = "";
 
 while {!end} do
 {
 	sleep 0.5;
 	if (isServer) then {
 		timeLeft = timeLeft - 0.5;
+		publicVariable "timeLeft";
 		if (timeLeft < 0 && scoreBlufor != scoreOpfor) then {
 			end = true;
+			publicVariable "end";
 		};
 		if (timeLeft < 0 && scoreBlufor == scoreOpfor) then {
 			timeLeft = timeLeft + 61;
+			publicVariable "timeLeft";
 			"Teams scores are equal! \nAdded 1 minute of extra time!" remoteExec ["hint",0];
 		};
 	};
@@ -21,12 +24,13 @@ while {!end} do
 };
 
 if (isServer) then {
-	publicVariable "end";
 	if (scoreOpfor > scoreBlufor) then{
-		_winnerTeam = "OPFOR";
+		winnerTeam = "OPFOR";
+		publicVariable "winnerTeam";
 	}
 	else {
-		_winnerTeam = "BLUFOR";
+		winnerTeam = "BLUFOR";
+		publicVariable "winnerTeam";
 	};
 
 	format ["GAME OVER\nThe winner team is %1", _winnerTeam] remoteExec ["hint",0];

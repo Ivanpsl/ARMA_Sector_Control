@@ -37,9 +37,6 @@ execVM "flagMarkers.sqf";
 execVM "maintainRating.sqf";
 execVM "texturesUpdate.sqf";
 execVM "timer.sqf";
-if (isServer) then {
-	execVM "synchronizePlayers.sqf";
-};
 
 {
 	_x setFlagSide (side Player);
@@ -51,9 +48,6 @@ A addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagASi
 B addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagBSide != side _this",4,false];
 C addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagCSide != side _this",4,false];
 
-if (isServer) then {
-	flagASide = EAST;
-};
 
 ["AmmoboxInit",[supplyOpfor,true,{side _this == EAST}]] spawn BIS_fnc_arsenal;
 ["AmmoboxInit",[supplyBlufor,true,{side _this == WEST}]] spawn BIS_fnc_arsenal;
@@ -73,5 +67,35 @@ if (isServer) then {
 		
 		_owner publicVariableClient "scoreOpfor";
 		_owner publicVariableClient "scoreBlufor";
+		
+		/*
+		if (flagASide == EAST) then {
+			"SA" setMarkerColor "colorOPFOR";
+		};
+		if (flagASide == WEST) then {
+			"SA" setMarkerColor "colorOPFOR";
+		};
+
+		if (flagBSide == EAST) then {
+			"SB" setMarkerColor "colorOPFOR";
+		};
+		if (flagBSide == WEST) then {
+			"SB" setMarkerColor "colorOPFOR";
+		};
+
+		if (flagCSide == EAST) then {
+			"SC" setMarkerColor "colorOPFOR";
+		};
+		if (flagCSide == WEST) then {
+			"SC" setMarkerColor "colorOPFOR";
+		};
+		*/
 	};
+};
+
+if (isServer) then {
+	sleep 0.1;
+	flagASide = EAST;
+	"SA" setMarkerColor "colorOPFOR";
+	flagAText = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 };

@@ -5,11 +5,12 @@ _safeDistance = 15;
 _allVehiclesEast = [e1,e2,e3];
 _allVehiclesWest = [w1,w2,w3];
 
+
 while {true} do
 {
 		_x = player;
-		//if ((_x distance baseOpfor < _safeDistance && side _x == EAST) || (_x distance baseBlufor < _safeDistance && side _x == WEST)) then {
-		if (true) then {
+		if ((_x distance baseOpfor < _safeDistance && side _x == EAST) || (_x distance baseBlufor < _safeDistance && side _x == WEST)) then {
+		//if (true) then {
 			inSpawn = true;
 			_x allowDamage (_x getVariable ["playerAllowDamage", false]);
 		}

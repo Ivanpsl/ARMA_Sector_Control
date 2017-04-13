@@ -13,12 +13,11 @@ class RscTitles
 	#include "hud_dialog.cpp"
 };
 
-saving = 0;
-
 joinUnassigned = 0;
 disabledAI = 1;
 respawn = "BASE";
 respawndelay = 10;
+respawnButton = 0;
 
 corpseManagerMode = 2;
 corpseLimit = 20;
@@ -26,9 +25,9 @@ corpseRemovalMinTime = 120;
 corpseRemovalMaxTime = 1200;
 minPlayerDistance = 200;
 
-respawnVehicleDelay = 120;
+respawnVehicleDelay = 10;//120
 wreckManagerMode = 2;
-wreckLimit = 10;
+wreckLimit = 6;
 wreckRemovalMinTime = 120;
 wreckRemovalMaxTime = 1200;
 forceRotorLibSimulation = 1;

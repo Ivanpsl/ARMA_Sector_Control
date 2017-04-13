@@ -15,5 +15,7 @@ _flagTime = 5; //20
 				scoreBlufor = scoreBlufor + 1;
 			};
 		} forEach [flagASide,flagBSide,flagCSide];
+		publicVariable "scoreOpfor";
+		publicVariable "scoreBlufor";
 	};
 };
