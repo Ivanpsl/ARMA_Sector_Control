@@ -25,7 +25,7 @@ corpseRemovalMinTime = 120;
 corpseRemovalMaxTime = 1200;
 minPlayerDistance = 200;
 
-respawnVehicleDelay = 10;//120
+respawnVehicleDelay = 120;
 wreckManagerMode = 2;
 wreckLimit = 6;
 wreckRemovalMinTime = 120;
@@ -33,4 +33,4 @@ wreckRemovalMaxTime = 1200;
 forceRotorLibSimulation = 1;
 
 
-enableDebugConsole = 2;
+enableDebugConsole = 0;

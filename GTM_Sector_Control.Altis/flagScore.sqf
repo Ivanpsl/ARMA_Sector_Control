@@ -1,6 +1,6 @@
 
 if (isServer) then {
-_flagTime = 5; //20
+_flagTime = 4;
 
 	while {!end} do
 	{

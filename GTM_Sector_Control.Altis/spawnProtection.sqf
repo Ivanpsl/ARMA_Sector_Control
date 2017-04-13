@@ -1,6 +1,6 @@
 // Make players invulnerable in base
 
-_safeDistance = 15;
+_safeDistance = 20;
 
 while {true} do
 {

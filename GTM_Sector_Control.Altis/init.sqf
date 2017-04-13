@@ -5,6 +5,7 @@ scoreBlufor = 0;
 scoreOpfor = 0;
 end = false;
 timeLeft = 0;
+nearSupply = false;
 
 
 flagASide = independent;
