@@ -1,8 +1,7 @@
 
 _friendlyKillPenalty = 3;
 _suicidePenalty = 2;
-_kScoreDelay = 0; //15
-
+_kScoreDelay = 1; //15
 
 if (!end) then {
 	_casualty = _this select 0;
@@ -15,35 +14,38 @@ if (!end) then {
 		sleep _kScoreDelay;
 	};
 	
-	if (side _casualty == side _killer && name _casualty != name _killer) then
+	if (side group _casualty == side group _killer && _casualty != _killer) then
 	{
-		if (side _casualty == EAST) then
+		if (side group _casualty == EAST) then
 		{
 			scoreOpfor = scoreOpfor - _friendlyKillPenalty;
 		};
-		if (side _casualty == WEST) then
+		if (side group _casualty == WEST) then
 		{
 			scoreBlufor = scoreBlufor - _friendlyKillPenalty;
 		};
 	}
 	else
 	{
-		if (side _casualty == EAST && (side _killer != WEST || name _casualty == name _killer)) then
+		if (_casualty == _killer) then
 		{
-			scoreOpfor = scoreOpfor - _suicidePenalty;
-		};
-		if (side _casualty == WEST && (side _killer != EAST || name _casualty == name _killer)) then
-		{
-			scoreBlufor = scoreBlufor - _suicidePenalty;
+			if (side group _casualty == EAST) then
+			{
+				scoreOpfor = scoreOpfor - _suicidePenalty;
+			};
+			if (side group _casualty == WEST) then
+			{
+				scoreBlufor = scoreBlufor - _suicidePenalty;
+			};
 		};
 	};
 
-	if ((side _casualty == EAST) && (side _killer == WEST)) then
+	if ((side group _casualty == EAST) && (side group _killer == WEST)) then
 	{
 		scoreBlufor = scoreBlufor + 1;
 		scoreOpfor = scoreOpfor - 1;
 	};
-	if ((side _casualty == WEST) && (side _killer == EAST)) then
+	if ((side group _casualty == WEST) && (side group _killer == EAST)) then
 	{
 		scoreBlufor = scoreBlufor - 1;
 		scoreOpfor = scoreOpfor + 1;

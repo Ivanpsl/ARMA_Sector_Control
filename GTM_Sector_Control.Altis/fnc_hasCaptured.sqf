@@ -2,8 +2,6 @@ _target = _this select 0;
 _caller = _this select 1;
 
 
-//_target setFlagSide (side _caller);
-
 if (_target == A) then {
 	flagASide = (side _caller);
 	publicVariable "flagASide";

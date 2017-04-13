@@ -39,10 +39,8 @@ execVM "texturesUpdate.sqf";
 execVM "timer.sqf";
 
 {
-	_x setFlagSide (side Player);
-	//_x setFlagTexture "\A3\Data_F\Flags\Flag_white_CO.paa";
-	//_x addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagSide _target != side _this",4,false];
-} forEach flags;
+	_x setFlagSide sideFriendly;
+} forEach flags + [baseOpfor,baseBlufor];
 
 A addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagASide != side _this",4,false];
 B addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagBSide != side _this",4,false];
@@ -67,35 +65,14 @@ if (isServer) then {
 		
 		_owner publicVariableClient "scoreOpfor";
 		_owner publicVariableClient "scoreBlufor";
-		
-		/*
-		if (flagASide == EAST) then {
-			"SA" setMarkerColor "colorOPFOR";
-		};
-		if (flagASide == WEST) then {
-			"SA" setMarkerColor "colorOPFOR";
-		};
-
-		if (flagBSide == EAST) then {
-			"SB" setMarkerColor "colorOPFOR";
-		};
-		if (flagBSide == WEST) then {
-			"SB" setMarkerColor "colorOPFOR";
-		};
-
-		if (flagCSide == EAST) then {
-			"SC" setMarkerColor "colorOPFOR";
-		};
-		if (flagCSide == WEST) then {
-			"SC" setMarkerColor "colorOPFOR";
-		};
-		*/
 	};
 };
 
+/*
 if (isServer) then {
 	sleep 0.1;
 	flagASide = EAST;
 	"SA" setMarkerColor "colorOPFOR";
 	flagAText = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 };
+*/
