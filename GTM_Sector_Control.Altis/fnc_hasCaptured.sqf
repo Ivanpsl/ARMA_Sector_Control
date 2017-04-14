@@ -15,7 +15,7 @@ if (_target == A) then {
 		flagAText = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 		publicVariable "flagAText";
 		sleep 1;
-		format ["OPFOR now controls %1",str _target] remoteExec ["hint",0];
+		format ["OPFOR ahora controla %1",str _target] remoteExec ["hint",0];
 		
 		"SA" setMarkerColor "colorOPFOR";
 	};
@@ -23,7 +23,7 @@ if (_target == A) then {
 		flagAText = "\A3\Data_F\Flags\Flag_nato_CO.paa";
 		publicVariable "flagAText";
 		sleep 1;
-		format ["BLUFOR now controls %1",str _target] remoteExec ["hint",0];
+		format ["BLUFOR ahora controla %1",str _target] remoteExec ["hint",0];
 		
 		"SA" setMarkerColor "colorBLUFOR";
 	};
@@ -43,7 +43,7 @@ else {
 			flagBText = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 			publicVariable "flagBText";
 			sleep 1;
-			format ["OPFOR now controls %1",str _target] remoteExec ["hint",0];
+			format ["OPFOR ahora controla %1",str _target] remoteExec ["hint",0];
 			
 			"SB" setMarkerColor "colorOPFOR";
 		};
@@ -51,7 +51,7 @@ else {
 			flagBText = "\A3\Data_F\Flags\Flag_nato_CO.paa";
 			publicVariable "flagBText";
 			sleep 1;
-			format ["BLUFOR now controls %1",str _target] remoteExec ["hint",0];
+			format ["BLUFOR ahora controla %1",str _target] remoteExec ["hint",0];
 			
 			"SB" setMarkerColor "colorBLUFOR";
 		};
@@ -70,7 +70,7 @@ else {
 				flagCText = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 				publicVariable "flagCText";
 				sleep 1;
-				format ["OPFOR now controls %1",str _target] remoteExec ["hint",0];
+				format ["OPFOR ahora controla %1",str _target] remoteExec ["hint",0];
 				
 				"SC" setMarkerColor "colorOPFOR";
 			};
@@ -78,7 +78,7 @@ else {
 				flagCText = "\A3\Data_F\Flags\Flag_nato_CO.paa";
 				publicVariable "flagCText";
 				sleep 1;
-				format ["BLUFOR now controls %1",str _target] remoteExec ["hint",0];
+				format ["BLUFOR ahora controla %1",str _target] remoteExec ["hint",0];
 				
 				"SC" setMarkerColor "colorBLUFOR";
 			};
@@ -118,7 +118,7 @@ if (side _caller == EAST) then {
 	_target setFlagTexture "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 	publicVariable "_target";
 	sleep 1;
-	format ["OPFOR now controls %1",str _target] remoteExec ["hint",0];
+	format ["OPFOR ahora controla %1",str _target] remoteExec ["hint",0];
 	if (_target == A) then {
 		"SA" setMarkerColor "colorOPFOR";
 	};
@@ -133,7 +133,7 @@ if (side _caller == WEST) then {
 	_target setFlagTexture "\A3\Data_F\Flags\Flag_nato_CO.paa";
 	publicVariable "_target";
 	sleep 1;
-	format ["BLUFOR now controls %1",str _target] remoteExec ["hint",0];
+	format ["BLUFOR ahora controla %1",str _target] remoteExec ["hint",0];
 	if (_target == A) then {
 		"SA" setMarkerColor "colorBLUFOR";
 	};

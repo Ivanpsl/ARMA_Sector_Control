@@ -15,7 +15,7 @@ while {!end} do
 		if (timeLeft < 0 && scoreBlufor == scoreOpfor) then {
 			timeLeft = timeLeft + 61;
 			publicVariable "timeLeft";
-			"Teams scores are equal! \nAdded 1 minute of extra time!" remoteExec ["hint",0];
+			"¡Las puntuaciones están igualadas! \n¡Añadido 1 minuto de tiempo extra!" remoteExec ["hint",0];
 		};
 	};
 	_displayString = timeLeft;
@@ -33,12 +33,12 @@ if (isServer) then {
 		publicVariable "winnerTeam";
 	};
 
-	format ["GAME OVER\nThe winner team is %1", _winnerTeam] remoteExec ["hint",0];
+	format ["FIN DEL JUEGO \nEl equipo ganador es: %1", _winnerTeam] remoteExec ["hint",0];
 };
 
 sleep 10;
 
-if (side Player == _winnerTeam) then {
+if (side group Player == _winnerTeam) then {
 	["end1",true,3,true,true] call BIS_fnc_endMission;
 }
 else {

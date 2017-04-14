@@ -76,7 +76,7 @@ if (flagCSide == WEST) then
 (_ui displayCtrl 1001) ctrlSetText _timeText;
 
 
-(_ui displayCtrl 1002) ctrlSetText "¿?";
-
 (_ui displayCtrl 1101) ctrlSetText str scoreBlufor;
 (_ui displayCtrl 1102) ctrlSetText str scoreOpfor;
+
+(_ui displayCtrl 1005) ctrlShow inSpawn;

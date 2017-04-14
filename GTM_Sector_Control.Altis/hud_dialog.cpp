@@ -85,7 +85,7 @@
 				text = "";
 				x = 0.679 * safezoneW + safezoneX;
 				y = 0.02 * safezoneH + safezoneY;
-				w = 0.03 * safezoneW;
+				w = 0.05 * safezoneW;
 				h = 0.04 * safezoneH;
 				font = "PuristaMedium";
 				colorBackground[] = {0,0,1,0.3};
@@ -99,16 +99,34 @@
 				style = ST_CENTER;
 				idc = 1102;
 				text = "";
-				x = 0.71 * safezoneW + safezoneX;
+				x = 0.73 * safezoneW + safezoneX;
 				y = 0.02 * safezoneH + safezoneY;
-				w = 0.03 * safezoneW;
+				w = 0.05 * safezoneW;
 				h = 0.04 * safezoneH;
 				font = "PuristaMedium";
 				colorBackground[] = {1,0,0,0.3};
 				colorText[] = {1,1,1,1};
 				sizeEx = 0.05;
 			};
+			class SpawnProtectionDisplay
+			{
+				type = CT_STATIC;
+				style = ST_CENTER;
+				idc = 1005;
+				lineSpacing =1;
+				fadein=0.2;
+				fadeout=0.2;
+				text = "Zona segura";
+				x = 0.103165 * safezoneW + safezoneX;
+				y = 0.757996 * safezoneH + safezoneY;
+				w = 0.778208 * safezoneW;
+				h = 0.0660106 * safezoneH;
+				font = "PuristaSemiBold";
+				colorBackground[] = {0.05,1,1,0.3};
+				colorText[] = {1,1,1,1};
+				sizeEx = 0.05;
+			};
 
 		};
+		
 	};
-

@@ -6,6 +6,7 @@ scoreOpfor = 0;
 end = false;
 timeLeft = 0;
 nearSupply = false;
+inSpawn = true;
 
 
 flagASide = independent;
@@ -44,9 +45,9 @@ execVM "timer.sqf";
 	_x setFlagSide sideFriendly;
 } forEach flags + [baseOpfor,baseBlufor];
 
-A addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagASide != side _this",4,false];
-B addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagBSide != side _this",4,false];
-C addAction ["Hoist your flag",{call fnc_hasCaptured},"",7,true,true,"","flagCSide != side _this",4,false];
+A addAction ["Iza tu bandera",{call fnc_hasCaptured},"",7,true,true,"","flagASide != side _this",4,false];
+B addAction ["Iza tu bandera",{call fnc_hasCaptured},"",7,true,true,"","flagBSide != side _this",4,false];
+C addAction ["Iza tu bandera",{call fnc_hasCaptured},"",7,true,true,"","flagCSide != side _this",4,false];
 
 
 ["AmmoboxInit",[supplyOpfor,true,{side _this == EAST}]] spawn BIS_fnc_arsenal;

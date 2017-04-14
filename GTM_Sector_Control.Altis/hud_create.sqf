@@ -1,7 +1,7 @@
 //PENDIENTE DE MODIFICAR
 
 private ["_ui", "_timer", "_mission", "_scoreW", "_scoreE"];
-inSpawn = true;
+nearSupply = true;
 
 
 while {true} do {
