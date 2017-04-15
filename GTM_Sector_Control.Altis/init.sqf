@@ -8,6 +8,11 @@ timeLeft = 0;
 nearSupply = false;
 inSpawn = true;
 
+friendlyKillPenalty = 12;
+suicidePenalty = 10;
+kScoreEarned = 5;
+kScoreDelay = 20;
+
 
 flagASide = independent;
 flagBSide = independent;

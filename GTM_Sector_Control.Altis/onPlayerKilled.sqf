@@ -1,56 +1,57 @@
 
-_friendlyKillPenalty = 12;
-_suicidePenalty = 10;
-_kScoreEarned = 5;
-_kScoreDelay = 20;
-
 if (!end) then {
 	_casualty = _this select 0;
 	_killer = _this select 1;
+	
+	_sideGroupCasualty = side group _casualty;
+	_sideGroupKiller = side group _killer;
+	_nameCasualty = name _casualty;
+	_nameKiller = name _killer;
 
-	if (timeLeft <= _kScoreDelay) then {
+	if (timeLeft <= kScoreDelay) then {
 		sleep (timeLeft - 0.1);
 	}
 	else {
-		sleep _kScoreDelay;
+		sleep kScoreDelay;
 	};
 	
-	if (side group _casualty == side group _killer && _casualty != _killer) then
+	if (_sideGroupCasualty == _sideGroupKiller && _nameCasualty != _nameKiller) then
 	{
-		if (side group _casualty == EAST) then
+		if (_sideGroupCasualty == EAST) then
 		{
-			scoreOpfor = scoreOpfor - _friendlyKillPenalty;
+			scoreOpfor = scoreOpfor - friendlyKillPenalty;
 		};
-		if (side group _casualty == WEST) then
+		if (_sideGroupCasualty == WEST) then
 		{
-			scoreBlufor = scoreBlufor - _friendlyKillPenalty;
+			scoreBlufor = scoreBlufor - friendlyKillPenalty;
 		};
 	}
 	else
 	{
-		if (_casualty == _killer) then
+		if (_nameCasualty == _nameKiller) then
 		{
-			if (side group _casualty == EAST) then
+			if (_sideGroupCasualty == EAST) then
 			{
-				scoreOpfor = scoreOpfor - _suicidePenalty;
+				scoreOpfor = scoreOpfor - suicidePenalty;
 			};
-			if (side group _casualty == WEST) then
+			if (_sideGroupCasualty == WEST) then
 			{
-				scoreBlufor = scoreBlufor - _suicidePenalty;
+				scoreBlufor = scoreBlufor - suicidePenalty;
 			};
 		};
 	};
 
-	if ((side group _casualty == EAST) && (side group _killer == WEST)) then
+	if ((_sideGroupCasualty == EAST) && (_sideGroupKiller == WEST)) then
 	{
-		scoreBlufor = scoreBlufor + _kScoreEarned;
-		scoreOpfor = scoreOpfor - _kScoreEarned;
+		scoreBlufor = scoreBlufor + kScoreEarned;
+		scoreOpfor = scoreOpfor - kScoreEarned;
 	};
-	if ((side group _casualty == WEST) && (side group _killer == EAST)) then
+	if ((_sideGroupCasualty == WEST) && (_sideGroupKiller == EAST)) then
 	{
-		scoreBlufor = scoreBlufor - _kScoreEarned;
-		scoreOpfor = scoreOpfor + _kScoreEarned;
+		scoreBlufor = scoreBlufor - kScoreEarned;
+		scoreOpfor = scoreOpfor + kScoreEarned;
 	};
+
 	publicVariable "scoreOpfor";
 	publicVariable "scoreBlufor";
 };
