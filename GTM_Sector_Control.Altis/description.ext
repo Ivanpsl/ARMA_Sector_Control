@@ -17,7 +17,7 @@ joinUnassigned = 0;
 disabledAI = 1;
 respawn = "BASE";
 respawndelay = 10;
-respawnButton = 0;
+respawnButton = 1;
 
 corpseManagerMode = 2;
 corpseLimit = 20;

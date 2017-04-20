@@ -22,16 +22,6 @@ flagAText = "\A3\Data_F\Flags\Flag_white_CO.paa";
 flagBText = "\A3\Data_F\Flags\Flag_white_CO.paa";
 flagCText = "\A3\Data_F\Flags\Flag_white_CO.paa";
 
-
-waitUntil {!isNull player};
-
-["teleportHandler", "onMapSingleClick", {
-	if (_alt) then {
-		player setPosATL _pos;
-	};
-}] call BIS_fnc_addStackedEventHandler;
-
-
 fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
 fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
 //[] call compile preprocessFileLineNumbers "hud_create.sqf";
@@ -44,6 +34,8 @@ execVM "flagScore.sqf";
 execVM "flagMarkers.sqf";
 execVM "maintainRating.sqf";
 execVM "texturesUpdate.sqf";
+execVM "TeamGear.sqf";
+execVM "TeamVehicles.sqf";
 execVM "timer.sqf";
 
 {
@@ -84,3 +76,12 @@ if (isServer) then {
 	flagAText = "\A3\Data_F\Flags\Flag_CSAT_CO.paa";
 };
 */
+
+
+waitUntil {!isNull player};
+
+["teleportHandler", "onMapSingleClick", {
+	if (_alt) then {
+		player setPosATL _pos;
+	};
+}] call BIS_fnc_addStackedEventHandler;

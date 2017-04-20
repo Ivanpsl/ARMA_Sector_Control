@@ -1,6 +1,9 @@
 _maxTime = 3600;
-timeLeft = _maxTime + 1;
+timeLeft = _maxTime + 15;
 winnerTeam = "";
+
+
+waitUntil {!isNull player};
 
 while {!end} do
 {
