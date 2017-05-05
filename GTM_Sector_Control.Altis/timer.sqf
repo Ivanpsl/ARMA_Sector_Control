@@ -1,15 +1,20 @@
 _maxTime = 3600;
-timeLeft = _maxTime + 15;
+_startDelay = 20;
+timeLeft = _maxTime;
+
 winnerTeam = "";
+endTheMission = false;
 
 
-waitUntil {!isNull player};
+waitUntil {!isNull player && time > _startDelay};
+_previousTime = time;
 
 while {!end} do
 {
 	sleep 0.5;
 	if (isServer) then {
-		timeLeft = timeLeft - 0.5;
+		timeLeft = timeLeft -(time - _previousTime);
+		_previousTime = time;
 		publicVariable "timeLeft";
 		if (timeLeft < 0 && scoreBlufor != scoreOpfor) then {
 			end = true;
@@ -37,9 +42,12 @@ if (isServer) then {
 	};
 
 	format ["FIN DEL JUEGO \nEl equipo ganador es: %1", _winnerTeam] remoteExec ["hint",0];
+	sleep 10;
+	endTheMission = true;
+	publicVariable "endTheMission";
 };
 
-sleep 10;
+waitUntil {endTheMission};
 
 if (side group Player == _winnerTeam) then {
 	["end1",true,3,true,true] call BIS_fnc_endMission;
