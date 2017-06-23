@@ -34,14 +34,13 @@ while {!end} do
 if (isServer) then {
 	if (scoreOpfor > scoreBlufor) then{
 		winnerTeam = "OPFOR";
-		publicVariable "winnerTeam";
 	}
 	else {
 		winnerTeam = "BLUFOR";
-		publicVariable "winnerTeam";
 	};
-
-	format ["FIN DEL JUEGO \nEl equipo ganador es: %1", _winnerTeam] remoteExec ["hint",0];
+	
+	publicVariable "winnerTeam";
+	format ["FIN DEL JUEGO \nEl equipo ganador es: %1", winnerTeam] remoteExec ["hint",0];
 	sleep 10;
 	endTheMission = true;
 	publicVariable "endTheMission";
@@ -49,7 +48,7 @@ if (isServer) then {
 
 waitUntil {endTheMission};
 
-if (side group Player == _winnerTeam) then {
+if (side group Player == winnerTeam) then {
 	["end1",true,3,true,true] call BIS_fnc_endMission;
 }
 else {
