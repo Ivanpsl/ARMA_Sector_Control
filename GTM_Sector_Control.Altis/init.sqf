@@ -11,7 +11,7 @@ inSpawn = true;
 friendlyKillPenalty = 12;
 suicidePenalty = 10;
 kScoreEarned = 5;
-kScoreDelay = 15;
+kScoreDelay = 20;
 
 
 flagASide = independent;
@@ -21,6 +21,9 @@ flagCSide = independent;
 flagAText = "\A3\Data_F\Flags\Flag_white_CO.paa";
 flagBText = "\A3\Data_F\Flags\Flag_white_CO.paa";
 flagCText = "\A3\Data_F\Flags\Flag_white_CO.paa";
+
+readyBlufor = false;
+readyOpfor = false;
 
 fnc_hasCaptured = compile preprocessFileLineNumbers "fnc_hasCaptured.sqf";
 fnc_HUDUpdate = compile preprocessFileLineNumbers "hud_update.sqf";
@@ -37,6 +40,7 @@ execVM "texturesUpdate.sqf";
 execVM "TeamGear.sqf";
 execVM "TeamVehicles.sqf";
 execVM "timer.sqf";
+execVM "waitForStart.sqf";
 
 {
 	_x setFlagSide sideFriendly;
@@ -46,6 +50,8 @@ A addAction ["Iza tu bandera",{call fnc_hasCaptured},"",7,true,true,"","flagASid
 B addAction ["Iza tu bandera",{call fnc_hasCaptured},"",7,true,true,"","flagBSide != side _this",4,false];
 C addAction ["Iza tu bandera",{call fnc_hasCaptured},"",7,true,true,"","flagCSide != side _this",4,false];
 
+baseBlufor addAction ["Empezar partida",{readyBlufor = true,publicVariable "readyBlufor","Blufor está listo" remoteExec ["hint",0]},"",0,true,true,"","!readyBlufor",0,false];
+baseOpfor addAction ["Empezar partida",{readyOpfor = true,publicVariable "readyOpfor","Opfor está listo" remoteExec ["hint",0]},"",0,true,true,"","!readyOpfor",0,false];
 
 ["AmmoboxInit",[supplyOpfor,true,{side _this == EAST}]] spawn BIS_fnc_arsenal;
 ["AmmoboxInit",[supplyBlufor,true,{side _this == WEST}]] spawn BIS_fnc_arsenal;
@@ -77,7 +83,7 @@ if (isServer) then {
 };
 */
 
-
+/*
 waitUntil {!isNull player};
 
 ["teleportHandler", "onMapSingleClick", {
@@ -85,3 +91,4 @@ waitUntil {!isNull player};
 		player setPosATL _pos;
 	};
 }] call BIS_fnc_addStackedEventHandler;
+*/

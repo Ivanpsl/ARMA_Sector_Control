@@ -1,5 +1,5 @@
 
-if (!end && timeLeft > 0) then {
+if (!end) then {
 	_casualty = _this select 0;
 	_killer = _this select 1;
 	
@@ -8,11 +8,11 @@ if (!end && timeLeft > 0) then {
 	_nameCasualty = name _casualty;
 	_nameKiller = name _killer;
 
-	if (timeLeft <= 1.5*kScoreDelay) then {
-		uiSleep (timeLeft + random (1.5));
+	if (timeLeft <= kScoreDelay) then {
+		sleep (timeLeft - 0.5);
 	}
 	else {
-		sleep (random kScoreDelay + 0.5*kScoreDelay);
+		sleep kScoreDelay;
 	};
 	
 	if (_sideGroupCasualty == _sideGroupKiller && _nameCasualty != _nameKiller) then

@@ -1,11 +1,10 @@
-// Make players invulnerable in base
 
-_safeDistance = 20;
+safeDistance = 20;
 
 while {true} do
 {
 		_x = player;
-		if ((_x distance baseOpfor < _safeDistance && side _x == EAST) || (_x distance baseBlufor < _safeDistance && side _x == WEST)) then {
+		if ((_x distance baseOpfor < safeDistance && side _x == EAST) || (_x distance baseBlufor < safeDistance && side _x == WEST)) then {
 			inSpawn = true;
 			_x allowDamage (_x getVariable ["playerAllowDamage", false]);
 		}
@@ -15,7 +14,7 @@ while {true} do
 		};
 		
 		{
-			if (_x distance baseBlufor < _safeDistance*1.5) then {
+			if (_x distance baseBlufor < safeDistance*1.5) then {
 				_x allowDamage (_x getVariable ["playerAllowDamage", false]);
 			}
 			else {
@@ -24,13 +23,17 @@ while {true} do
 		} forEach [w1,w2,w3];
 		
 		{
-			if (_x distance baseOpfor < _safeDistance*1.5) then {
+			if (_x distance baseOpfor < safeDistance*1.5) then {
 				_x allowDamage (_x getVariable ["playerAllowDamage", false]);
 			}
 			else {
 				_x allowDamage (_x getVariable ["playerAllowDamage", true]);
 			};
 		} forEach [e1,e2,e3];
+		
+		if (end) then {
+			_x allowDamage (_x getVariable ["playerAllowDamage", false]);
+		};
 		
 	sleep 1;
 };

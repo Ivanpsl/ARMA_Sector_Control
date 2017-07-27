@@ -1,35 +1,31 @@
-_maxTime = 3600;
-_startDelay = 20;
+_maxTime = 3600; //3600
+//_startDelay = 20;
 timeLeft = _maxTime;
 
 winnerTeam = "";
-strwinnerTeam = "";
-
 endTheMission = false;
 
 
-waitUntil {!isNull player && time > _startDelay};
+//waitUntil {!isNull player && time > _startDelay};
+waitUntil {readyBlufor && readyOpfor};
+
 _previousTime = time;
 
 while {!end} do
 {
-	uiSleep 0.25;
+	sleep 0.5;
 	if (isServer) then {
-		//timeLeft = timeLeft -(time - _previousTime);
-		timeLeft = timeLeft - 0.25;
-		//_previousTime = time;
+		timeLeft = timeLeft -(time - _previousTime);
+		_previousTime = time;
 		publicVariable "timeLeft";
-		if (timeLeft <= 0 && scoreBlufor != scoreOpfor) then {
-			sleep 2;
-			if (scoreBlufor != scoreOpfor) then {
-				end = true;
-				publicVariable "end";
-			};
+		if (timeLeft < 0 && scoreBlufor != scoreOpfor) then {
+			end = true;
+			publicVariable "end";
 		};
-		if (timeLeft <= 0.25 && scoreBlufor == scoreOpfor && !end) then {
-			timeLeft = 120;
+		if (timeLeft < 0 && scoreBlufor == scoreOpfor) then {
+			timeLeft = timeLeft + 61;
 			publicVariable "timeLeft";
-			"¡Las puntuaciones están igualadas! \n¡Añadidos 2 minutos de tiempo extra!" remoteExec ["hint",0];
+			"¡Las puntuaciones están igualadas! \n¡Añadido 1 minuto de tiempo extra!" remoteExec ["hint",0];
 		};
 	};
 	_displayString = timeLeft;
@@ -37,20 +33,20 @@ while {!end} do
 	[_displayString] call fnc_HUDUpdate;
 };
 
-
 if (isServer) then {
 	if (scoreOpfor > scoreBlufor) then{
-		winnerTeam = OPFOR;
 		strWinnerTeam = "OPFOR";
+		WinnerTeam = OPFOR;
 	}
 	else {
-		winnerTeam = BLUFOR;
 		strWinnerTeam = "BLUFOR";
+		WinnerTeam = BLUFOR;
 	};
 	
-	publicVariable "winnerTeam";
+	publicVariable "strWinnerTeam";
+	publicVariable "WinnerTeam";
 	format ["FIN DEL JUEGO \nEl equipo ganador es: %1", strWinnerTeam] remoteExec ["hint",0];
-	sleep 8;
+	sleep 10;
 	endTheMission = true;
 	publicVariable "endTheMission";
 };
@@ -58,8 +54,8 @@ if (isServer) then {
 waitUntil {endTheMission};
 
 if (side group Player == winnerTeam) then {
-	["end1",true,3,true,true] call BIS_fnc_endMission;
+	endMission "END1";
 }
 else {
-	["end2",false,3,true,true] call BIS_fnc_endMission;
+	endMission "LOSER";
 };
