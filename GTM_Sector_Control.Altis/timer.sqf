@@ -9,23 +9,27 @@ endTheMission = false;
 //waitUntil {!isNull player && time > _startDelay};
 waitUntil {readyBlufor && readyOpfor};
 
-_previousTime = time;
+//_previousTime = time;
 
 while {!end} do
 {
-	sleep 0.5;
+	uiSleep 0.25;
 	if (isServer) then {
-		timeLeft = timeLeft -(time - _previousTime);
-		_previousTime = time;
+		//timeLeft = timeLeft -(time - _previousTime);
+		timeLeft = timeLeft - 0.25;
+		//_previousTime = time;
 		publicVariable "timeLeft";
-		if (timeLeft < 0 && scoreBlufor != scoreOpfor) then {
-			end = true;
-			publicVariable "end";
+		if (timeLeft <= 0 && scoreBlufor != scoreOpfor) then {
+			uiSleep 2;
+			if (scoreBlufor != scoreOpfor) then {
+				end = true;
+				publicVariable "end";
+			};
 		};
-		if (timeLeft < 0 && scoreBlufor == scoreOpfor) then {
-			timeLeft = timeLeft + 61;
+		if (timeLeft <= 0.25 && scoreBlufor == scoreOpfor && !end) then {
+			timeLeft = 120;
 			publicVariable "timeLeft";
-			"¡Las puntuaciones están igualadas! \n¡Añadido 1 minuto de tiempo extra!" remoteExec ["hint",0];
+			"¡Las puntuaciones están igualadas! \n¡Añadidos 2 minutos de tiempo extra!" remoteExec ["hint",0];
 		};
 	};
 	_displayString = timeLeft;
@@ -36,17 +40,17 @@ while {!end} do
 if (isServer) then {
 	if (scoreOpfor > scoreBlufor) then{
 		strWinnerTeam = "OPFOR";
-		WinnerTeam = OPFOR;
+		winnerTeam = OPFOR;
 	}
 	else {
 		strWinnerTeam = "BLUFOR";
-		WinnerTeam = BLUFOR;
+		winnerTeam = BLUFOR;
 	};
 	
 	publicVariable "strWinnerTeam";
 	publicVariable "WinnerTeam";
 	format ["FIN DEL JUEGO \nEl equipo ganador es: %1", strWinnerTeam] remoteExec ["hint",0];
-	sleep 10;
+	sleep 8;
 	endTheMission = true;
 	publicVariable "endTheMission";
 };

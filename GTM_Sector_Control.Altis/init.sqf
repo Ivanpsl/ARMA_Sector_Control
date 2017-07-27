@@ -11,7 +11,7 @@ inSpawn = true;
 friendlyKillPenalty = 12;
 suicidePenalty = 10;
 kScoreEarned = 5;
-kScoreDelay = 20;
+kScoreDelay = 15;
 
 
 flagASide = independent;
@@ -60,6 +60,9 @@ if (isServer) then {
 	onPlayerConnected {
 		_owner publicVariableClient "timeLeft";
 		_owner publicVariableClient "end";
+		_owner publicVariableClient "readyBlufor";
+		_owner publicVariableClient "readyOpfor";
+		_owner publicVariableClient "endTheMission";
 		
 		_owner publicVariableClient "flagASide";
 		_owner publicVariableClient "flagBSide";
